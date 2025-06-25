@@ -1,0 +1,117 @@
+
+.gext-response-content {
+  position: relative;
+  padding-top: 40px;
+  z-index: 1;
+}
+
+/* --- BUTTON STYLES --- */
+.gext-label-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: linear-gradient(to right, #f06292, #e1407b);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 999;
+  transform: skewY(-5deg);
+  transform-origin: bottom right;
+  text-transform: uppercase;
+}
+
+.gext-label-btn:hover {
+  opacity: 1;
+  transform: skewY(-5deg) scale(1.05);
+}
+
+.gext-hider-btn {
+  position: absolute;
+  top: 10px;
+  right: 65px; /* Original position */
+  width: 65px;
+  height: 65px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+  background-color: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("chrome-extension://__MSG_@@extension_id__/images/hide-state.png");
+}
+
+/* When the message is hidden, switch to the 'Show' icon */
+.gext-message-is-hidden .gext-hider-btn {
+  background-image: url("chrome-extension://__MSG_@@extension_id__/images/show-state.png");
+}
+
+.gext-hider-btn-gif-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* --- LABEL UI STYLES --- */
+.gext-label-input {
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  background-color: aliceblue;
+  border: 1px solid #cce0ff;
+  border-radius: 4px;
+  padding: 5px;
+  width: 60%;
+  z-index: 998;
+  font-size: 14px;
+}
+
+.gext-saved-label {
+  /* This is the fix for the background width */
+  display: inline-block;
+  width: fit-content;
+  
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  background: linear-gradient(to right, #f06292, #e1407b);
+  color: white;
+  border-radius: 3px;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 998;
+  transform: skewY(-5deg);
+  transform-origin: bottom left;
+}
+
+/* --- HIDE/SHOW LOGIC STYLES --- */
+.gext-message-is-hidden .markdown-main-panel {
+  display: none !important;
+}
+.gext-message-is-hidden::before {
+  content: "Message Hidden";
+  font-style: normal;
+  color: #888;
+  display: block;
+  padding: 10px;
+  padding-left: 10px;
+}
+.gext-highlighted-message {
+  transition: border 0.4s ease-in-out;
+  box-shadow: 0 0 8px 3px #4a89f3 !important; /* Enhanced highlight */
+  border-radius: 10px;
+}

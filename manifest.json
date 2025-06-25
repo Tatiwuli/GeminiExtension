@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Gemini Message Organizer",
+  "version": "1.0",
+  "description": "A simple extension to hide and label messages in a Gemini chat.",
+  "permissions": ["storage", "tabs", "clipboardWrite"],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "images/hide-state.png",
+        "images/show-state.png",
+        "images/hiding-animation.gif"
+      ],
+      "matches": ["https://gemini.google.com/*"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://gemini.google.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
